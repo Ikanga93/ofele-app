@@ -1,18 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Django Fortune Teller</title>
-    <style>
-        body {
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Schedule</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ofele_app/style.css' %}">
 </head>
 <body>
+    <h1>Intercession Programs</h1>
+    <h3>Bonjour serviteurs de Dieu 
+    </h3>
+    <p>Current Date: {{ current_date }}</p>
+    <p>Voici la liste de notre prière de chaque lundi:
+    </p>
+    <h2>Monday Prayer Schedule</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Person</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date, name in monday_schedule %}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>Bonjour serviteurs Dieu, voici la liste de notre prière de chaque samedi à 16h30 : 
+    </p>
+    <h2>Saturday Prayer Schedule</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Person</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date, name in saturday_schedule %}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    <h1>Here is our moderator:</h1>
+    <h2>Weekly Prayer Teams</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Intercesseur 1</th>
+                <th>Intercesseur 2</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in prayer_teams %}
+            <tr>
+                <td>{{ team.0 }}</td>
+                <td>{{ team.1 }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>Veuillez please demander à une autre personne de diriger à votre place si vous n’êtes pas en mesure de le faire. Merci et que Dieu vous bénisse
+    </p>
 
-    <p>{{ moderator }}</p>
-    
 </body>
 </html>

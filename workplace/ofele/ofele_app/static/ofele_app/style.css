@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: none;
+}
+
+table, th, td {
+    border: 1px solid #ffffff;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    color: rgb(35, 34, 32);
+    font-size: large;
+    background-color: whitesmoke;
+} 
+
+td {
+    padding: 8px;
+    text-align: left;
+    color: white;
+    background-color: #2d404c;
+}
