@@ -23,3 +23,12 @@ td {
     color: white;
     background-color: #2d404c;
 }
+
+p .attention {
+    color: red;
+}
+
+footer p {
+    color: red;
+    font-size: large;
+}

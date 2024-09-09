@@ -41,15 +41,18 @@ saturday_schedule = [
     ("Maman Hadassa", "12 October"),
 ]
 
-def create_weekly_prayer_teams(members):
-    """Create new pairs of members for each week."""
-    random.shuffle(members)
-    prayer_teams = [(members[i], members[i + 1]) for i in range(0, len(members) - 1, 2)]
-    
-    if len(members) % 2 != 0:
-        prayer_teams.append((members[-1], "No Pair"))
+def create_weekly_prayer_teams(members, current_teams=None):
+    """Create new pairs of members for each week on Monday."""
+    if datetime.now().weekday() == 0: # Monday is 0
+        random.shuffle(members)
+        prayer_teams = [(members[i], members[i + 1]) for i in range(0, len(members) - 1, 2)]
+        
+        if len(members) % 2 != 0:
+            prayer_teams.append((members[-1], "No Pair"))
 
-    return prayer_teams
+        return prayer_teams
+    else:
+        return current_teams if current_teams else []
 
 def get_current_week_start_date():
     """Get the start date of the current week (Monday)."""
